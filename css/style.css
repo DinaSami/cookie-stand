@@ -27,3 +27,17 @@ ul {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
+table, th, td {
+    border: 1px solid rgb(126, 124, 124);
+    border-collapse: collapse;
+    /* width: 100%; */
+    border-bottom: 1px solid rgb(121, 120, 120);
+}
+table {
+    width: 75%;
+    margin-left: 180px;
+}
+th {
+    background-color: #f71616;
+    color: rgb(216, 213, 213);
+  }
