@@ -1,29 +1,33 @@
 'use strict';
 let workingHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+// let totalLocationPerHour = ['Seattle','Tokyo','Dubai','Paris','Lima'],
+// let total = 0;
 
-let total = 0;
-
-const Seattle = {
+const seattle = {
   location: 'Seattle',
-  minCust: 23,
-  maxCust: 65,
+  minCusterPerHour: 23,
+  maxCusterPerHour: 65,
+  avrCookiePerSale: 6.3,
+  numberOfCustmerPerHour: [],
   amountPurchEachHour: [],
+  totalCookiePerDay: 0,
   getCustmerNumber: function () {
 
 
     for (let i = 0; i < workingHours.length; i++) {
-      let randomFinal = getRandomCus(this.minCust, this.maxCust);
-      this.amountPurchEachHour.push(randomFinal);
-      total = total + randomFinal;
-      console.log(randomFinal);
+      let randomFinal = getRandomCus(this.minCusterPerHour, this.maxCusterPerHour);
+      this.numberOfCustmerPerHour.push(randomFinal);
     }
-    console.log(this.amountPurchEachHour);
-
-    console.log(total);
-    return this.amountPurchEachHour;
+  },
+  calcAmountPurchPerHour: function () {
+    for (let i = 0; i < workingHours.length; i++) {
+      const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
+      this.amountPurchEachHour.push(perHour);
+      this.totalCookiePerDay = this.totalCookiePerDay + perHour;
+    }
   },
   render: function () {
-    const container = document.getElementById('select');
+    const container = document.getElementById('salesSection');
     const articlEl = document.createElement('article');
     container.appendChild(articlEl);
     const pEL = document.createElement('p');
@@ -34,42 +38,49 @@ const Seattle = {
     for (let i = 0; i < workingHours.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${workingHours[i]}:${this.amountPurchEachHour[i]}`;
+      liEl.textContent = `${workingHours[i]} : ${this.amountPurchEachHour[i]} cookies`;
     }
     const p2El = document.createElement('p');
     articlEl.appendChild(p2El);
-    p2El.textContent = `Total: ${total}`;
+    p2El.textContent = `Total : ${this.totalCookiePerDay}`;
   }
-
 };
 
 function getRandomCus(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
-Seattle.getCustmerNumber();
-Seattle.render();
+seattle.getCustmerNumber();
+seattle.calcAmountPurchPerHour();
+seattle.render();
 
 //second location
-total = 0;
-const Tokyo = {
+
+const tokyo = {
   location: 'Tokyo',
-  minCust: 3,
-  maxCust: 24,
+  minCusterPerHour: 3,
+  maxCusterPerHour: 24,
+  avrCookiePerSale: 1.2,
+  numberOfCustmerPerHour: [],
   amountPurchEachHour: [],
+  totalCookiePerDay: 0,
   getCustmerNumber: function () {
 
 
     for (let i = 0; i < workingHours.length; i++) {
-      let randomFinal = getRandomCus(this.minCust, this.maxCust);
-      this.amountPurchEachHour.push(randomFinal);
-      total = total + randomFinal;
+      let randomFinal = getRandomCus(this.minCusterPerHour, this.maxCusterPerHour);
+      this.numberOfCustmerPerHour.push(randomFinal);
     }
-    console.log(this.amountPurchEachHour);
-    console.log(total);
-    return this.amountPurchEachHour;
   },
+  calcAmountPurchPerHour: function () {
+    for (let i = 0; i < workingHours.length; i++) {
+      const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
+      this.amountPurchEachHour.push(perHour);
+      this.totalCookiePerDay = this.totalCookiePerDay + perHour;
+    }
+  },
+
   render: function () {
-    const container = document.getElementById('select');
+    const container = document.getElementById('salesSection');
     const articlEl = document.createElement('article');
     container.appendChild(articlEl);
     const pEL = document.createElement('p');
@@ -80,39 +91,46 @@ const Tokyo = {
     for (let i = 0; i < workingHours.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${workingHours[i]}:${this.amountPurchEachHour[i]}`;
+      liEl.textContent = `${workingHours[i]} : ${this.amountPurchEachHour[i]} cookies`;
     }
     const p2El = document.createElement('p');
     articlEl.appendChild(p2El);
-    p2El.textContent = `Total: ${total}`;
+    p2El.textContent = `Total : ${this.totalCookiePerDay}`;
   }
-
 };
 
-Tokyo.getCustmerNumber();
-Tokyo.render();
+tokyo.getCustmerNumber();
+tokyo.calcAmountPurchPerHour();
+tokyo.render();
 
 //Third location
-total = 0;
-const Dubai = {
+
+const dubai = {
   location: 'Dubai',
-  minCust: 11,
-  maxCust: 38,
+  minCusterPerHour: 11,
+  maxCusterPerHour: 38,
+  avrCookiePerSale: 3.7,
+  numberOfCustmerPerHour: [],
   amountPurchEachHour: [],
+  totalCookiePerDay: 0,
   getCustmerNumber: function () {
 
 
     for (let i = 0; i < workingHours.length; i++) {
-      let randomFinal = getRandomCus(this.minCust, this.maxCust);
-      this.amountPurchEachHour.push(randomFinal);
-      total = total + randomFinal;
+      let randomFinal = getRandomCus(this.minCusterPerHour, this.maxCusterPerHour);
+      this.numberOfCustmerPerHour.push(randomFinal);
     }
-    console.log(this.amountPurchEachHour);
-    console.log(total);
-    return this.amountPurchEachHour;
   },
+  calcAmountPurchPerHour: function () {
+    for (let i = 0; i < workingHours.length; i++) {
+      const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
+      this.amountPurchEachHour.push(perHour);
+      this.totalCookiePerDay = this.totalCookiePerDay + perHour;
+    }
+  },
+
   render: function () {
-    const container = document.getElementById('select');
+    const container = document.getElementById('salesSection');
     const articlEl = document.createElement('article');
     container.appendChild(articlEl);
     const pEL = document.createElement('p');
@@ -123,39 +141,46 @@ const Dubai = {
     for (let i = 0; i < workingHours.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${workingHours[i]}:${this.amountPurchEachHour[i]}`;
+      liEl.textContent = `${workingHours[i]} : ${this.amountPurchEachHour[i]} cookies`;
     }
     const p2El = document.createElement('p');
     articlEl.appendChild(p2El);
-    p2El.textContent = `Total: ${total}`;
+    p2El.textContent = `Total : ${this.totalCookiePerDay}`;
   }
-
 };
 
-Dubai.getCustmerNumber();
-Dubai.render();
+dubai.getCustmerNumber();
+dubai.calcAmountPurchPerHour();
+dubai.render();
 
 //Forth location
-total = 0;
-const Paris = {
+
+const paris = {
   location: 'Paris',
-  minCust: 20,
-  maxCust: 38,
+  minCusterPerHour: 20,
+  maxCusterPerHour: 38,
+  avrCookiePerSale: 2.3,
+  numberOfCustmerPerHour: [],
   amountPurchEachHour: [],
+  totalCookiePerDay: 0,
   getCustmerNumber: function () {
 
 
     for (let i = 0; i < workingHours.length; i++) {
-      let randomFinal = getRandomCus(this.minCust, this.maxCust);
-      this.amountPurchEachHour.push(randomFinal);
-      total = total + randomFinal;
+      let randomFinal = getRandomCus(this.minCusterPerHour, this.maxCusterPerHour);
+      this.numberOfCustmerPerHour.push(randomFinal);
     }
-    console.log(this.amountPurchEachHour);
-    console.log(total);
-    return this.amountPurchEachHour;
   },
+  calcAmountPurchPerHour: function () {
+    for (let i = 0; i < workingHours.length; i++) {
+      const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
+      this.amountPurchEachHour.push(perHour);
+      this.totalCookiePerDay = this.totalCookiePerDay + perHour;
+    }
+  },
+
   render: function () {
-    const container = document.getElementById('select');
+    const container = document.getElementById('salesSection');
     const articlEl = document.createElement('article');
     container.appendChild(articlEl);
     const pEL = document.createElement('p');
@@ -166,39 +191,46 @@ const Paris = {
     for (let i = 0; i < workingHours.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${workingHours[i]}:${this.amountPurchEachHour[i]}`;
+      liEl.textContent = `${workingHours[i]} : ${this.amountPurchEachHour[i]} cookies`;
     }
     const p2El = document.createElement('p');
     articlEl.appendChild(p2El);
-    p2El.textContent = `Total: ${total}`;
+    p2El.textContent = `Total : ${this.totalCookiePerDay}`;
   }
-
 };
 
-Paris.getCustmerNumber();
-Paris.render();
+paris.getCustmerNumber();
+paris.calcAmountPurchPerHour();
+paris.render();
 
 //Fifth location
-total = 0;
-const Lima = {
+
+const lima = {
   location: 'Lima',
-  minCust: 2,
-  maxCust: 16,
+  minCusterPerHour: 2,
+  maxCusterPerHour: 16,
+  avrCookiePerSale: 4.6,
+  numberOfCustmerPerHour: [],
   amountPurchEachHour: [],
+  totalCookiePerDay: 0,
   getCustmerNumber: function () {
 
 
     for (let i = 0; i < workingHours.length; i++) {
-      let randomFinal = getRandomCus(this.minCust, this.maxCust);
-      this.amountPurchEachHour.push(randomFinal);
-      total = total + randomFinal;
+      let randomFinal = getRandomCus(this.minCusterPerHour, this.maxCusterPerHour);
+      this.numberOfCustmerPerHour.push(randomFinal);
     }
-    console.log(this.amountPurchEachHour);
-    console.log(total);
-    return this.amountPurchEachHour;
   },
+  calcAmountPurchPerHour: function () {
+    for (let i = 0; i < workingHours.length; i++) {
+      const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
+      this.amountPurchEachHour.push(perHour);
+      this.totalCookiePerDay = this.totalCookiePerDay + perHour;
+    }
+  },
+
   render: function () {
-    const container = document.getElementById('select');
+    const container = document.getElementById('salesSection');
     const articlEl = document.createElement('article');
     container.appendChild(articlEl);
     const pEL = document.createElement('p');
@@ -209,14 +241,14 @@ const Lima = {
     for (let i = 0; i < workingHours.length; i++) {
       let liEl = document.createElement('li');
       ulEl.appendChild(liEl);
-      liEl.textContent = `${workingHours[i]}:${this.amountPurchEachHour[i]}`;
+      liEl.textContent = `${workingHours[i]} : ${this.amountPurchEachHour[i]} cookies`;
     }
     const p2El = document.createElement('p');
     articlEl.appendChild(p2El);
-    p2El.textContent = `Total: ${total}`;
+    p2El.textContent = `Total : ${this.totalCookiePerDay}`;
   }
-
 };
 
-Lima.getCustmerNumber();
-Lima.render();
+lima.getCustmerNumber();
+lima.calcAmountPurchPerHour();
+lima.render();
