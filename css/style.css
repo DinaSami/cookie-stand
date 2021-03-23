@@ -34,10 +34,16 @@ table, th, td {
     border-bottom: 1px solid rgb(121, 120, 120);
 }
 table {
-    width: 75%;
+    width: 50%;
     margin-left: 180px;
+    
 }
 th {
     background-color: #f71616;
     color: rgb(216, 213, 213);
+    /* padding: 10px; */
   }
+td , tr{
+    text-align: center;
+    padding: 5px;
+}
