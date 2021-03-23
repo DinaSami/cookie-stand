@@ -9,7 +9,7 @@ h1 {
     color: red;
     font-family: 'Ranchers', cursive;
 }
-p {
+.location p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -46,4 +46,8 @@ th {
 td , tr{
     text-align: center;
     padding: 5px;
+}
+.HoursOpen p{
+ color: black;
+ font-weight: lighter;
 }
