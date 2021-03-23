@@ -60,3 +60,50 @@ td , tr{
     color: red;
     font-family: 'Ranchers', cursive;
 }
+#lists {
+    background-color: rgb(252, 223, 223);
+    width: 100%;
+    overflow: auto;
+}
+#lists ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#lists ul li{
+    float: left;
+}
+#lists ul li a{
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(247, 91, 91);
+    /* background-color: rgb(252, 223, 223); */
+    font-size: 18px;
+    padding: 15px;
+}
+#lists ul li a:hover{
+    background-color: rgb(243, 78, 78);
+    color: white;
+}
+.container{
+     max-width: 1200px; 
+    overflow: auto;
+     margin: auto; 
+     background-color: wheat;
+}
+.images{
+     margin: 5px;
+    border: 1px solid rgb(247, 149, 149); 
+     float: left;
+     width: 390px; 
+} 
+.images img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#saleLink a{
+    font-size: 20px;
+}
