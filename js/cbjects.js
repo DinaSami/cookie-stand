@@ -1,7 +1,13 @@
 'use strict';
+const container = document.getElementById('salesSection');
+const articlEl = document.createElement('article');
+container.appendChild(articlEl);
+const tableEl = document.createElement('table');
+articlEl.appendChild(tableEl);
+
 let workingHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 let tOt = 0;
-let totalEach = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+let totalEach = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 // let totalEachHour = 0;
 let mainContaier = [];
 function Location(location, minCusterPerHour, maxCusterPerHour, avrCookiePerSale, numberOfCustmerPerHour, amountPurchEachHour) {
@@ -30,14 +36,14 @@ Location.prototype.calcAmountPurchPerHour = function () {
     const perHour = Math.ceil(this.numberOfCustmerPerHour[i] * this.avrCookiePerSale);
     this.amountPurchEachHour.push(perHour);
     this.totalCookiePerDay = this.totalCookiePerDay + perHour;
-    totalEach[i]=totalEach[i]+perHour;
+    totalEach[i] = totalEach[i] + perHour;
     // tOt = this.totalCookiePerDay + tOt;
   }
 };
 // Location.prototype.totalEachHourLocation = function () {
 //   for (let i = 0; i < this.location.length; i++) {
 //     this.amountTotalEachHour.push(this.amountPurchEachHour[i]);
-    
+
 //   }
 //   totalEachHour = this.amountTotalEachHour + totalEachHour;
 // };
@@ -88,7 +94,7 @@ let headerTable = function () {
 };
 headerTable();
 
-let footerRow = function (){
+let footerRow = function () {
 
   const container = document.getElementById('salesSection');
   const articlEl = document.createElement('article');
@@ -98,18 +104,18 @@ let footerRow = function (){
   const FooterEl = document.createElement('tr');
   tableEl.appendChild(FooterEl);
 
-  const firstfooterCell = document.createElement('td');
+  const firstfooterCell = document.createElement('th');
   FooterEl.appendChild(firstfooterCell);
   firstfooterCell.textContent = 'Totals';
 
 
   for (let i = 0; i < workingHours.length; i++) {
 
-    const td2El = document.createElement('td');
+    const td2El = document.createElement('th');
     FooterEl.appendChild(td2El);
     td2El.textContent = totalEach[i];
   }
-  const td2El = document.createElement('td');
+  const td2El = document.createElement('th');
   FooterEl.appendChild(td2El);
   td2El.textContent = tOt;
 };
@@ -124,7 +130,7 @@ const lima = new Location('Lima', 2, 16, 4.6, [], []);
 seattle.getCustmerNumber();
 seattle.calcAmountPurchPerHour();
 seattle.render();
-// seattle.totalEachHourLocation();
+
 
 tokyo.getCustmerNumber();
 tokyo.calcAmountPurchPerHour();
@@ -145,10 +151,9 @@ lima.getCustmerNumber();
 lima.calcAmountPurchPerHour();
 lima.render();
 for (let i = 0; i < mainContaier.length; i++) {
-  tOt=tOt+mainContaier[i].totalCookiePerDay;
-  console.log(mainContaier[i].totalCookiePerDay);
+  tOt = tOt + mainContaier[i].totalCookiePerDay;
 }
-console.log(tOt);
+
 footerRow();
 
 
@@ -157,11 +162,36 @@ function getRandomCus(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-// console.log(mainContaier);
-// for(let i=0 ; i<mainContaier.length; i++){
-//   console.log(mainContaier[i].location);
-// }
-// console.log(tOt);
 
-// console.log(totalEachHour);
-console.log(totalEach);
+let myForm = document.getElementById('salesForm');
+
+myForm.addEventListener('submit', addNewLocation);
+
+function addNewLocation(event) {
+  event.preventDefault();
+  console.log(addNewLocation);
+
+  let myLocation = event.target.location.value;
+
+  console.log(myLocation);
+
+  let minNumber = event.target.minCusterPerHour.value;
+  minNumber = parseInt(minNumber);
+
+
+  let maxNumber = event.target.maxCusterPerHour.value;
+  maxNumber = parseInt(maxNumber);
+
+  console.log(maxNumber);
+  let avrNumber = event.target.avrCookiePerSale.value;
+  avrNumber = parseFloat(avrNumber);
+
+
+  let newLocation = new Location(myLocation, minNumber, maxNumber, avrNumber, [], []);
+  tableEl.deleteRow(-1);
+  newLocation.getCustmerNumber();
+  newLocation.calcAmountPurchPerHour();
+  newLocation.render();
+  footerRow();
+
+}
