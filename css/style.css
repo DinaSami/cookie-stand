@@ -27,7 +27,7 @@ ul {
     margin-inline-end: 0px;
     padding-inline-start: 40px;
 }
-table, th, td {
+ table, th, td {
     border: 1px solid rgb(126, 124, 124);
     border-collapse: collapse;
     /* width: 100%; */
@@ -36,17 +36,19 @@ table, th, td {
 table {
     width: 50%;
     margin-left: 180px;
+    border-style: solid;
     
-}
+} 
 th {
     background-color: #f71616;
     color: rgb(216, 213, 213);
-    /* padding: 10px; */
+    border-style: solid;
   }
 td , tr{
     text-align: center;
     padding: 5px;
-}
+    border-style: solid;
+} 
 .HoursOpen p{
  color: black;
  font-weight: lighter;
@@ -64,6 +66,7 @@ td , tr{
     background-color: rgb(252, 223, 223);
     width: 100%;
     overflow: auto;
+    margin-bottom: 15px;
 }
 #lists ul{
     list-style: none;
@@ -107,3 +110,10 @@ td , tr{
 #saleLink a{
     font-size: 20px;
 }
+
+#salesForm {
+    color: rgb(12, 12, 12);
+    font-family: 'Ranchers', cursive;
+}
+
+    
