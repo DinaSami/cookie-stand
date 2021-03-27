@@ -1,119 +1,65 @@
-h1 {
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    /* font-weight: bold; */
-    color: red;
-    font-family: 'Ranchers', cursive;
+*{
+    padding: 0px;
+    margin: 0px;
 }
-.location p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    color: red;
-    font-family: 'Ranchers', cursive;
+.wrapper{
+    background: url(../img/2.jpg) no-repeat;
+    background-size: cover;
+    height: 130vh;
 }
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
- table, th, td {
-    border: 1px solid rgb(126, 124, 124);
-    border-collapse: collapse;
-    /* width: 100%; */
-    border-bottom: 1px solid rgb(121, 120, 120);
-}
-table {
-    width: 50%;
-    margin-left: 180px;
-    border-style: solid;
-    
-} 
-th {
-    background-color: #f71616;
-    color: rgb(216, 213, 213);
-    border-style: solid;
-  }
-td , tr{
-    text-align: center;
-    padding: 5px;
-    border-style: solid;
-} 
-.HoursOpen p{
- color: black;
- font-weight: lighter;
-}
-.location p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    color: red;
-    font-family: 'Ranchers', cursive;
-}
-#lists {
-    background-color: rgb(252, 223, 223);
+.navbar{
+    height: 80px;
     width: 100%;
-    overflow: auto;
-    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.4);
 }
-#lists ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-#lists ul li{
-    float: left;
-}
-#lists ul li a{
-    width: 120px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: rgb(247, 91, 91);
-    /* background-color: rgb(252, 223, 223); */
-    font-size: 18px;
-    padding: 15px;
-}
-#lists ul li a:hover{
-    background-color: rgb(243, 78, 78);
-    color: white;
-}
-.container{
-     max-width: 1200px; 
-    overflow: auto;
-     margin: auto; 
-     background-color: wheat;
-}
-.images{
-     margin: 5px;
-    border: 1px solid rgb(247, 149, 149); 
+.navbar ul{
      float: left;
-     width: 390px; 
-} 
-.images img{
-    width: 100%;
-    height: auto;
-    display: block;
+     margin-left: 20px;
 }
-#saleLink a{
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 30px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
     font-size: 20px;
 }
-
-#salesForm {
-    color: rgb(12, 12, 12);
-    font-family: 'Ranchers', cursive;
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background: purple;
+    border-radius: 10px;
+}
+.wrapper .center{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(71, 68, 68);
+} 
+.center h2{
+    font-size: 25px;
+    margin-top: 5px;
+    color: rgba(27, 27, 27, 0.65);
+}
+.center button{
+color: white;
+width: 100px;
+height: 30px;
+margin-top: 30px;
+background: purple;
+border: 1px solid white;
+outline: none;
+cursor: pointer;
+border-radius: 10px;
+}
+.center button:hover{
+background:rgb(243, 236, 243);
+color: purple;
+font-weight: bold;
+font-size: 14px;
 }
 
     

@@ -2,31 +2,31 @@
 <html lang="en">
 
 <head>
-    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styleSales.css">
     <title>Sales</title>
 </head>
 
 <body>
-    <header>
+    <div class="wrapper">
         <h1>Pat's Salmon Cookies:Sales Data</h1>
-    </header>
     <main>
-        <div id="lists">
+        <nav class="navbar">
             <ul>
-                <li><a href="./index.html">Home page</a></li>
-                <li><a href="./lists/Locations.html">Locations</a></li>
-                <li><a href="./lists/HoursOpen.html">Hours open</a></li>
-                <li><a href="./lists/Contact.html">Contact Us</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Hours open</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="./sales.html">Sales</a></li>
             </ul>
-
-        </div>
+        </nav>
         <section id="salesSection"></section>
         <form id="salesForm">
             <fieldset>
                 <legend>Salmon Cookies</legend>
                 <br>
                 <br>
+                <div class="formStyle">
                 <label for="location">Location :</label>
                 <input type="text" name="location" id="location">
                 <br>
@@ -43,16 +43,15 @@
                 <input type="text" name="avrCookiePerSale" id="avrCookiePerSale">
                 <br>
                 <br>
-                <input type="submit" value="Add New Location">
+                <input id="submitBtn" type="submit" value="Add New Location">
+            </div>
             </fieldset>
         </form>
     </main>
     <footer>
-        <br>
-                <br>
-        <a href="./index.html">Back to home page</a>
         <script src="./js/cbjects.js"></script>
     </footer>
+</div>
 </body>
 
 </html>
